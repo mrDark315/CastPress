@@ -1,7 +1,21 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404</title><link rel="stylesheet" media="(min-width: 1024px)" href="css/main.min.css"><link rel="stylesheet" media="(max-width: 1024px)" href="css/main-mobile.min.css"><script src="https://kit.fontawesome.com/58ba86d5da.js" crossorigin="anonymous"></script></head><body><header><a href="index.html"><h1>CastPress.</h1></a><div class="primary-to-accent"><div class="btn"><a href="episodes.html">Episodes</a> <button type="button"><i class="fa-solid fa-angle-down"></i></button></div><a href="blog.html">Blog</a> <a href="contact.html">Contact</a> <a href="donate.html" id="donate"><i class="fa-regular fa-heart"></i><span>Donate</span></a> <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button> <label class="switch"><input type="checkbox" class="switch__input" id="themeToggle"> <span class="switch__slider"></span></label></div><button type="menu" id="menu"><img src="img/Menu.svg"></button></header><hr><script>if (sessionStorage.getItem('theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            document.getElementById('themeToggle').checked = true;
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404</title><link rel="stylesheet" media="(min-width: 1024px)" href="css/main.min.css"><link rel="stylesheet" media="(max-width: 1024px)" href="css/main-mobile.min.css"><script src="https://kit.fontawesome.com/58ba86d5da.js" crossorigin="anonymous"></script></head><body><header><a href="index.html"><h1>CastPress.</h1></a><div class="primary-to-accent"><div class="btn"><a href="episodes.html">Episodes</a> <button type="button"><i class="fa-solid fa-angle-down"></i></button></div><a href="blog.html">Blog</a> <a href="contact.html">Contact</a> <a href="donate.html" id="donate"><i class="fa-regular fa-heart"></i><span>Donate</span></a> <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button> <label class="switch"><input type="checkbox" class="switch__input" id="themeToggle"> <span class="switch__slider"></span></label></div><button type="menu" id="menu"><i class="fa-solid fa-bars fa-2xl"></i></button></header><hr><script>const themeToggle = document.getElementById('themeToggle');
+        let currentTheme = sessionStorage.getItem('theme');
+        if (currentTheme) {
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.checked = true;
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeToggle.checked = false;
+            }
         } else {
-            document.documentElement.removeAttribute('data-theme');
-            document.getElementById('themeToggle').checked = false;
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.checked = true;
+                sessionStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+                themeToggle.checked = false;
+                sessionStorage.setItem('theme', 'light');
+            }
         }</script><main><div class="error-404"><h1>404</h1><p>Page not found!</p><p>This page not found (deleted or never exists).<br>Try a phrase in search box or back to home and start again.</p><a href="index.html">Homepage<i class="fa-solid fa-angle-right"></i></a></div></main><footer><div class="link-singup"><div class="link"><a href="episodes.html">Episodes</a> <a href="blog.html">Blog</a> <a href="contact.html">Contact</a> <a href="donate.html">Donate</a></div><div class="sing-up"><p>NEWSLETTER</p><p>Sign up now; get closer to our action.</p><form action="" method="get"><input type="email" name="email" id="email" placeholder="Email adress..." maxlength="50"> <button type="submit"><i class="fa-solid fa-arrow-right fa-xm"></i></button></form></div></div><div class="social-media primary-to-accent"><p>PodcastTheme by VitaThemes <a href="privacy-policy.html">| Privacy policy</a></p><div><a href="https://uk-ua.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f fa-xl"></i></a> <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github fa-xl"></i></a> <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter fa-xl"></i></a></div></div></footer><script src="js/index.min.js"></script></body></html>
